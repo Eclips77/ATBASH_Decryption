@@ -65,7 +65,25 @@ namespace ATBASH_Decryption
             }
             return pointsCounter;
         }
-         
-                
+
+        static string GetWarning(int points)
+        {
+            string Warning = "";
+            if (points > 10)
+            {
+                Warning = "ULTRA ALERT!";
+            }
+            else if (points > 5)
+            {
+                Warning = "DANGER";
+            }
+            else
+            {
+                Warning = "WARNING";
+            }
+            return Warning;
+        }
+
+
     }
 }
