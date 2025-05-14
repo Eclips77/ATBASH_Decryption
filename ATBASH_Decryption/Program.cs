@@ -66,6 +66,12 @@ namespace ATBASH_Decryption
             return pointsCounter;
         }
          
-                
+        static string handelMassege(string incryptedMassege)
+        {
+            string decryptedMassege = decrypt(incryptedMassege);
+            int points = CheckForDanger(decryptedMassege);
+            string massegeAndWarninig = decryptedMassege + GetWarning(points);
+            return massegeAndWarninig;
+        }
     }
 }
