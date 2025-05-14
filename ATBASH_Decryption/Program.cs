@@ -10,21 +10,16 @@ namespace ATBASH_Decryption
     {
 
         static void Main(string[] args)
-        {   
-            string input = Console.ReadLine();
-            Console.WriteLine(CheckForDanger(input));
+        {
+            Console.WriteLine(handelMassege("Lfi ulixvh ziv kivkzirmt uli z nzqli zggzxp lm gsv Arlmrhg vmvnb.\r\nGsv ilxpvg fmrgh ziv ivzwb zmw dzrgrmt uli gsv hrtmzo.\r\nYlnyh szev yvvm kozxvw mvzi pvb olxzgrlmh.\r\nMfpsyz urtsgvih ziv hgzmwrmt yb uli tilfmw rmurogizgrlm.\r\nGsv zggzxp droo yv hfwwvm zmw hgilmt -- gsvb dlm’g hvv rg xlnrmt.\r\nDv nfhg hgzb srwwvm zmw pvvk gsv kozm hvxivg fmgro gsv ozhg nlnvmg.\r\nErxglib rh mvzi. Hgzb ivzwb.\r\n"));
         }
-
-
         static char getAtBash(char c)
         {
             int allChars = ((int)'a') + ((int)'z');
             int newC = allChars - (int)c;
             return (char)newC;
         }
-
-
-
+        
         static string decrypt(string str)
         {
             string decreptedMassege = "";
@@ -51,9 +46,10 @@ namespace ATBASH_Decryption
             }
             return decreptedMassege;
         }
+        
         static int CheckForDanger(string str)
         {
-            string[] DangersWords = { "bomb", "nukhba", "fighter", "rocket", "secret" };
+            string[] DangersWords = { "bombs", "nukhba", "fighters", "rocket", "secret" };
             string[] massage = str.Split(' ');
             int pointsCounter = 0;
             foreach (string word in massage)
@@ -84,11 +80,11 @@ namespace ATBASH_Decryption
             return Warning;
         }
 
-
-
-        static string handelMassege(string incryptedMassege)
+        static string handelMassege(string incryptedMsg)
         {
-            string decryptedMassege = decrypt(incryptedMassege);
+            string incrypMsgReplased = incryptedMsg.Replace("\r\n", "");
+            string incrypMsgReplasedFix = incrypMsgReplased.Replace(".", " ");
+            string decryptedMassege = decrypt(incrypMsgReplasedFix);
             int points = CheckForDanger(decryptedMassege);
             string massegeAndWarninig =  $"{decryptedMassege}\nrisk level: {GetWarning(points)}\ntotal points: {points}";
             return massegeAndWarninig;
