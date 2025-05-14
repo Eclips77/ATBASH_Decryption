@@ -85,12 +85,12 @@ namespace ATBASH_Decryption
         }
 
 
-         
+
         static string handelMassege(string incryptedMassege)
         {
             string decryptedMassege = decrypt(incryptedMassege);
             int points = CheckForDanger(decryptedMassege);
-            string massegeAndWarninig = decryptedMassege + GetWarning(points);
+            string massegeAndWarninig =  $"{decryptedMassege}\nrisk level: {GetWarning(points)}\ntotal points: {points}";
             return massegeAndWarninig;
         }
     }
